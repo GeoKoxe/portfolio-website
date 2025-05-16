@@ -257,7 +257,7 @@ const skills = [
     icon: "photoshop (1).png",
   },
   {
-    title: "Illustrator",
+    title: "Illustrator ",
     icon: "illustrator (1).png",
   },
 ];
