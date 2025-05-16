@@ -9,20 +9,22 @@ import { Link } from "react-scroll";
 export default function App() {
   return (
     <main className="min-h-screen bg-gradient-to-br from-gray-950 to-slate-800 text-white font-sans">
-      <section className="flex flex-col items-center justify-center text-center pt-24 pb-0 px-4">
+      {/* HERO SECTION */}
+      <section className="pt-24 pb-8 px-4 max-w-screen-md mx-auto text-center flex flex-col items-center justify-center">
         <motion.h1
           initial={{ opacity: 0, y: -50 }}
           animate={{ opacity: 1, y: 0 }}
           transition={{ duration: 1 }}
-          className="text-5xl md:text-6xl font-bold mb-4"
+          className="text-4xl sm:text-5xl md:text-6xl font-bold mb-4"
         >
           Hey, I'm <span className="text-teal-500">[George Koxenoglou]</span>
         </motion.h1>
+
         <motion.p
           initial={{ opacity: 0, y: -50 }}
           animate={{ opacity: 1, y: 0 }}
           transition={{ duration: 1, delay: 0.2 }}
-          className="text-xl md:text-2xl text-gray-300 mb-6 max-w-xl mx-auto"
+          className="text-lg sm:text-xl md:text-2xl text-gray-300 mb-8 max-w-lg mx-auto"
         >
           I build websites & web experiences that feel{" "}
           <span className="text-2xl font-semibold bg-gradient-to-r bg-clip-text text-transparent from-red-500 via-blue-500 to-green-500 animate-text">
@@ -30,54 +32,44 @@ export default function App() {
           </span>
           .
         </motion.p>
+
         <motion.div
           initial={{ opacity: 0, y: -50 }}
           animate={{ opacity: 1, y: 0 }}
           transition={{ duration: 1, delay: 0.4 }}
+          className="flex flex-col sm:flex-row items-center justify-center gap-6 w-full max-w-md mx-auto"
         >
-          <div className="flex flex-wrap gap-6 items-center justify-center relative max-w-full px-4">
-            <div
-              className="bg-cover rounded-full w-20 h-20 md:w-28 md:h-28"
-              style={{
-                backgroundImage: "url('/bongocat1.png')",
-                pointerEvents: "none",
-              }}
-            ></div>
-            <Link
-              to="projects"
-              smooth={true}
-              duration={120}
-              offset={-70}
-              className="z-10"
-            >
-              <button className="relative px-6 py-2 rounded-full text-black font-medium shadow-lg bg-white overflow-hidden group">
-                <span className="absolute inset-0 bg-gradient-to-r from-red-500 via-blue-500 to-green-500 transform scale-x-0 opacity-0 group-hover:scale-x-100 group-hover:opacity-100 transition-all duration-700 ease-in-out origin-bottom"></span>
-                <span className="relative z-10">View Projects</span>
-              </button>
-            </Link>
-            <Link
-              to="contact"
-              smooth={true}
-              duration={120}
-              offset={-70}
-              className="z-10"
-            >
-              <button className="relative px-6 py-2 rounded-full text-black font-medium shadow-lg bg-white overflow-hidden group">
-                <span className="absolute inset-0 bg-gradient-to-r from-red-500 via-blue-500 to-green-500 transform scale-x-0 opacity-0 group-hover:scale-x-100 group-hover:opacity-100 transition-all duration-700 ease-in-out origin-bottom"></span>
-                <span className="relative z-10">Contact Me</span>
-              </button>
-            </Link>
-            <div
-              className="bg-cover rounded-full w-20 h-20 md:w-28 md:h-28"
-              style={{
-                backgroundImage: "url('')",
-                pointerEvents: "none",
-              }}
-            ></div>
-          </div>
+          <div
+            className="bg-cover rounded-full w-20 h-20 sm:w-28 sm:h-28 pointer-events-none"
+            style={{
+              backgroundImage: "url('/bongocat1.png')",
+            }}
+          ></div>
+
+          <Link to="projects" smooth={true} duration={120} offset={-70}>
+            <button className="relative px-6 py-2 rounded-full text-black font-medium shadow-lg bg-white overflow-hidden group">
+              <span className="absolute inset-0 bg-gradient-to-r from-red-500 via-blue-500 to-green-500 transform scale-x-0 opacity-0 group-hover:scale-x-100 group-hover:opacity-100 transition-all duration-700 ease-in-out origin-bottom"></span>
+              <span className="relative z-10">View Projects</span>
+            </button>
+          </Link>
+
+          <Link to="contact" smooth={true} duration={120} offset={-70}>
+            <button className="relative px-6 py-2 rounded-full text-black font-medium shadow-lg bg-white overflow-hidden group">
+              <span className="absolute inset-0 bg-gradient-to-r from-red-500 via-blue-500 to-green-500 transform scale-x-0 opacity-0 group-hover:scale-x-100 group-hover:opacity-100 transition-all duration-700 ease-in-out origin-bottom"></span>
+              <span className="relative z-10">Contact Me</span>
+            </button>
+          </Link>
+
+          <div
+            className="bg-cover rounded-full w-20 h-20 sm:w-28 sm:h-28 pointer-events-none"
+            style={{
+              backgroundImage: "url('')",
+            }}
+          ></div>
         </motion.div>
       </section>
 
+      {/* DEVELOPER BIO */}
       <motion.div
         initial={{ opacity: 0, y: -50 }}
         animate={{ opacity: 1, y: 0 }}
@@ -88,14 +80,16 @@ export default function App() {
         </section>
       </motion.div>
 
-      <section id="projects" className="px-4 md:px-6 py-20 bg-gray-800">
+      {/* PROJECTS */}
+      <section id="projects" className="px-6 py-20 bg-gray-800">
         <motion.div
           initial={{ opacity: 0, y: -50 }}
           animate={{ opacity: 1, y: 0 }}
           transition={{ duration: 1, delay: 0.4 }}
+          className="max-w-5xl mx-auto"
         >
           <h2 className="text-3xl font-semibold mb-10 text-center">Projects</h2>
-          <div className="grid grid-cols-1 md:grid-cols-2 gap-8 max-w-5xl mx-auto">
+          <div className="grid grid-cols-1 md:grid-cols-2 gap-8">
             {projects.map((project, index) => (
               <div
                 key={index}
@@ -117,12 +111,13 @@ export default function App() {
         </motion.div>
       </section>
 
+      {/* SKILLS */}
       <motion.div
         initial={{ opacity: 0, y: -50 }}
         animate={{ opacity: 1, y: 0 }}
         transition={{ duration: 1, delay: 0.4 }}
       >
-        <section className="px-4 md:px-6 py-20 max-w-4xl mx-auto">
+        <section className="px-6 py-20 max-w-4xl mx-auto">
           <h2 className="text-3xl font-semibold mb-6 text-center">Skills</h2>
           <div className="grid grid-cols-2 md:grid-cols-4 gap-6 text-center">
             {skills.map((skill) => (
@@ -134,7 +129,7 @@ export default function App() {
                 <img
                   src={skill.icon}
                   alt={skill.title}
-                  className="mx-auto w-12 md:w-20 object-contain"
+                  className="px-20 w-md object-center mx-auto"
                 />
               </div>
             ))}
@@ -142,25 +137,23 @@ export default function App() {
         </section>
       </motion.div>
 
+      {/* CONTACT */}
       <motion.div
         initial={{ opacity: 0, y: -50 }}
         animate={{ opacity: 1, y: 0 }}
         transition={{ duration: 1, delay: 0.4 }}
       >
-        <section
-          id="contact"
-          className="px-4 md:px-6 py-20 bg-gray-900 text-center"
-        >
+        <section id="contact" className="px-6 py-20 bg-gray-900 text-center">
           <h2 className="text-3xl font-semibold mb-6">Contact Me</h2>
           <p className="text-gray-400 mb-4">
             Got a project or want to collaborate? Let's talk!
           </p>
-          <div className="flex justify-center gap-6 text-gray-300 flex-wrap">
+          <div className="flex justify-center gap-6 text-gray-300">
             <a href="tel:+306983650338" className="hover:text-white">
-              <Phone size={24} />
+              <Phone />
             </a>
             <a href="mailto:koxegeorge@email.com" className="hover:text-white">
-              <Mail size={24} />
+              <Mail />
             </a>
             <a
               href="https://github.com/GeoKoxe"
@@ -168,7 +161,7 @@ export default function App() {
               rel="noopener noreferrer"
               className="hover:text-white"
             >
-              <Github size={24} />
+              <Github />
             </a>
             <a
               href="https://www.linkedin.com/in/george-koxenoglou/"
@@ -176,12 +169,13 @@ export default function App() {
               rel="noopener noreferrer"
               className="hover:text-white"
             >
-              <Linkedin size={24} />
+              <Linkedin />
             </a>
           </div>
         </section>
       </motion.div>
 
+      {/* FOOTER */}
       <footer className="text-center py-6 text-sm text-gray-600">
         <motion.div
           initial={{ opacity: 0, y: -50 }}
