@@ -14,7 +14,7 @@ export default function App() {
           initial={{ opacity: 0, y: -50 }}
           animate={{ opacity: 1, y: 0 }}
           transition={{ duration: 1 }}
-          className="text-4xl sm:text-5xl md:text-6xl font-bold mb-4"
+          className="text-5xl md:text-6xl font-bold mb-4"
         >
           Hey, I'm <span className="text-teal-500">[George Koxenoglou]</span>
         </motion.h1>
@@ -22,7 +22,7 @@ export default function App() {
           initial={{ opacity: 0, y: -50 }}
           animate={{ opacity: 1, y: 0 }}
           transition={{ duration: 1, delay: 0.2 }}
-          className="text-lg sm:text-xl md:text-2xl text-gray-300 mb-6"
+          className="text-xl md:text-2xl text-gray-300 mb-6 max-w-xl mx-auto"
         >
           I build websites & web experiences that feel{" "}
           <span className="text-2xl font-semibold bg-gradient-to-r bg-clip-text text-transparent from-red-500 via-blue-500 to-green-500 animate-text">
@@ -35,47 +35,67 @@ export default function App() {
           animate={{ opacity: 1, y: 0 }}
           transition={{ duration: 1, delay: 0.4 }}
         >
-          <div className="flex flex-wrap justify-center gap-6 items-center">
+          <div className="flex flex-wrap gap-6 items-center justify-center relative max-w-full px-4">
             <div
-              className="relative bg-cover rounded-full w-24 h-24 md:w-28 md:h-28 z-20"
+              className="bg-cover rounded-full w-20 h-20 md:w-28 md:h-28"
               style={{
                 backgroundImage: "url('/bongocat1.png')",
-                transform: "translateX(-50%)",
                 pointerEvents: "none",
               }}
             ></div>
-            <Link to="projects" smooth={true} duration={120} offset={-70}>
+            <Link
+              to="projects"
+              smooth={true}
+              duration={120}
+              offset={-70}
+              className="z-10"
+            >
               <button className="relative px-6 py-2 rounded-full text-black font-medium shadow-lg bg-white overflow-hidden group">
                 <span className="absolute inset-0 bg-gradient-to-r from-red-500 via-blue-500 to-green-500 transform scale-x-0 opacity-0 group-hover:scale-x-100 group-hover:opacity-100 transition-all duration-700 ease-in-out origin-bottom"></span>
                 <span className="relative z-10">View Projects</span>
               </button>
             </Link>
-            <Link to="contact" smooth={true} duration={120} offset={-70}>
+            <Link
+              to="contact"
+              smooth={true}
+              duration={120}
+              offset={-70}
+              className="z-10"
+            >
               <button className="relative px-6 py-2 rounded-full text-black font-medium shadow-lg bg-white overflow-hidden group">
                 <span className="absolute inset-0 bg-gradient-to-r from-red-500 via-blue-500 to-green-500 transform scale-x-0 opacity-0 group-hover:scale-x-100 group-hover:opacity-100 transition-all duration-700 ease-in-out origin-bottom"></span>
                 <span className="relative z-10">Contact Me</span>
               </button>
             </Link>
+            <div
+              className="bg-cover rounded-full w-20 h-20 md:w-28 md:h-28"
+              style={{
+                backgroundImage: "url('')",
+                pointerEvents: "none",
+              }}
+            ></div>
           </div>
         </motion.div>
       </section>
+
       <motion.div
         initial={{ opacity: 0, y: -50 }}
         animate={{ opacity: 1, y: 0 }}
         transition={{ duration: 1, delay: 0.4 }}
       >
-        <section className="px-4 sm:px-6 py-20 max-w-3xl mx-auto">
+        <section className="px-6 py-20 max-w-3xl mx-auto">
           <DeveloperBio />
         </section>
       </motion.div>
-      <section id="projects" className="px-4 sm:px-6 py-20 bg-gray-800">
+
+      <section id="projects" className="px-4 md:px-6 py-20 bg-gray-800">
         <motion.div
           initial={{ opacity: 0, y: -50 }}
           animate={{ opacity: 1, y: 0 }}
           transition={{ duration: 1, delay: 0.4 }}
         >
           <h2 className="text-3xl font-semibold mb-10 text-center">Projects</h2>
-          <div className="grid grid-cols-1 sm:grid-cols-2 gap-8 max-w-5xl mx-auto">
+          <div className="grid grid-cols-1 md:grid-cols-2 gap-8 max-w-5xl mx-auto">
             {projects.map((project, index) => (
               <div
                 key={index}
@@ -96,14 +116,15 @@ export default function App() {
           </div>
         </motion.div>
       </section>
+
       <motion.div
         initial={{ opacity: 0, y: -50 }}
         animate={{ opacity: 1, y: 0 }}
         transition={{ duration: 1, delay: 0.4 }}
       >
-        <section className="px-4 sm:px-6 py-20 max-w-4xl mx-auto">
+        <section className="px-4 md:px-6 py-20 max-w-4xl mx-auto">
           <h2 className="text-3xl font-semibold mb-6 text-center">Skills</h2>
-          <div className="grid grid-cols-2 sm:grid-cols-3 md:grid-cols-4 gap-6 text-center">
+          <div className="grid grid-cols-2 md:grid-cols-4 gap-6 text-center">
             {skills.map((skill) => (
               <div
                 key={skill.title}
@@ -113,13 +134,14 @@ export default function App() {
                 <img
                   src={skill.icon}
                   alt={skill.title}
-                  className="mx-auto w-16 h-16 object-contain"
+                  className="mx-auto w-12 md:w-20 object-contain"
                 />
               </div>
             ))}
           </div>
         </section>
       </motion.div>
+
       <motion.div
         initial={{ opacity: 0, y: -50 }}
         animate={{ opacity: 1, y: 0 }}
@@ -127,18 +149,18 @@ export default function App() {
       >
         <section
           id="contact"
-          className="px-4 sm:px-6 py-20 bg-gray-900 text-center"
+          className="px-4 md:px-6 py-20 bg-gray-900 text-center"
         >
           <h2 className="text-3xl font-semibold mb-6">Contact Me</h2>
           <p className="text-gray-400 mb-4">
             Got a project or want to collaborate? Let's talk!
           </p>
-          <div className="flex flex-wrap justify-center gap-6 text-gray-300">
+          <div className="flex justify-center gap-6 text-gray-300 flex-wrap">
             <a href="tel:+306983650338" className="hover:text-white">
-              <Phone />
+              <Phone size={24} />
             </a>
             <a href="mailto:koxegeorge@email.com" className="hover:text-white">
-              <Mail />
+              <Mail size={24} />
             </a>
             <a
               href="https://github.com/GeoKoxe"
@@ -146,7 +168,7 @@ export default function App() {
               rel="noopener noreferrer"
               className="hover:text-white"
             >
-              <Github />
+              <Github size={24} />
             </a>
             <a
               href="https://www.linkedin.com/in/george-koxenoglou/"
@@ -154,11 +176,12 @@ export default function App() {
               rel="noopener noreferrer"
               className="hover:text-white"
             >
-              <Linkedin />
+              <Linkedin size={24} />
             </a>
           </div>
         </section>
       </motion.div>
+
       <footer className="text-center py-6 text-sm text-gray-600">
         <motion.div
           initial={{ opacity: 0, y: -50 }}
@@ -201,12 +224,36 @@ const projects = [
 ];
 
 const skills = [
-  { title: "HTML", icon: "html.png" },
-  { title: "CSS", icon: "css.png" },
-  { title: "JavaScript", icon: "js.png" },
-  { title: "React", icon: "react.png" },
-  { title: "Tailwind CSS", icon: "wind.png" },
-  { title: "WordPress", icon: "wp.png" },
-  { title: "Photoshop", icon: "photoshop (1).png" },
-  { title: "Illustrator", icon: "illustrator (1).png" },
+  {
+    title: "HTML",
+    icon: "html.png",
+  },
+  {
+    title: "CSS",
+    icon: "css.png",
+  },
+  {
+    title: "JavaScript",
+    icon: "js.png",
+  },
+  {
+    title: "React",
+    icon: "react.png",
+  },
+  {
+    title: "Tailwind CSS",
+    icon: "wind.png",
+  },
+  {
+    title: "WordPress",
+    icon: "wp.png",
+  },
+  {
+    title: "Photoshop",
+    icon: "photoshop (1).png",
+  },
+  {
+    title: "Illustrator",
+    icon: "illustrator (1).png",
+  },
 ];
